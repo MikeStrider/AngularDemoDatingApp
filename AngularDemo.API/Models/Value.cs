@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AngularDemoApp.Models
+namespace AngularDemo.API.Models
 {
     public class Value
     {

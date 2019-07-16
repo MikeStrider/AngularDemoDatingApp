@@ -10,14 +10,30 @@ using System;
 namespace AngularDemo.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20190709194445_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20190711153221_AddedUserEntity")]
+    partial class AddedUserEntity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.0.3-rtm-10026");
+
+            modelBuilder.Entity("AngularDemo.API.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name");
+
+                    b.Property<byte[]>("PasswordHash");
+
+                    b.Property<byte[]>("PasswordSalt");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
 
             modelBuilder.Entity("AngularDemo.API.Models.Value", b =>
                 {
